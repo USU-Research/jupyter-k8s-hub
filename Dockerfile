@@ -1,3 +1,6 @@
-FROM jupyterhub/k8s-hub:0.8.2
+FROM jupyterhub/k8s-hub:0.9-ad6bf45
 
-RUN pip3 install --no-cache-dir jupyterhub-jwtauthenticator
+RUN git clone https://github.com/mogthesprog/jwtauthenticator.git \
+    && cd jwtauthenticator \
+    && pip3 install -e .
+
